@@ -39,4 +39,4 @@
 
       - name: IP Publica
           debug:
-              msg: {{ item.public_ip }}
+              msg: "Prueba Ansible IP"
