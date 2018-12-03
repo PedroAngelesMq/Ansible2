@@ -37,4 +37,6 @@
 
         register: tag
 
-
+      - name: IP Publica
+          debug:
+              msg: "{{ item.public_ip }}"
