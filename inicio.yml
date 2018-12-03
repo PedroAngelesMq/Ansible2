@@ -37,6 +37,5 @@
 
         register: tag
 
-      - name: IP Publica
-          debug:
-              msg: "Prueba Ansible IP"
+      - debug:
+          msg: "IP: {{ inventory_hostname }}"
