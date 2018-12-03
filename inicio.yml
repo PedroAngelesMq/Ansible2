@@ -37,6 +37,15 @@
 
         register: tag
 
-      - debug:
-          with_items: "{{ ec2.instances }}"
-          msg: "IP: {{ item.public_ip }}"
+      - name: Debug ec2
+        debug: var=ec2
+
+      - name: Debug ec2 instances[0]
+        debug: var=ec2.instances[0]
+
+      - name: Debug ec2.instances public_ip
+        debug: var=ec2.instances[0].public_ip
+
+      - name: Debug ec2.instances with_items
+        debug: var=item
+        with_items: "{{ ec2.instances }}"
