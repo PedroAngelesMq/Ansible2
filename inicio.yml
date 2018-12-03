@@ -38,4 +38,4 @@
         register: tag
 
       - debug:
-          msg: "IP: {{ inventory_hostname }}"
+          msg: "IP: {{ item.public_ip }}"
