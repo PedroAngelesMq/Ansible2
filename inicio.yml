@@ -38,4 +38,5 @@
         register: tag
 
       - debug:
+          with_items: "{{ ec2.instances }}"
           msg: "IP: {{ item.public_ip }}"
