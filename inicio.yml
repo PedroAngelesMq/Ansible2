@@ -1,7 +1,7 @@
 ---
   - name: Provision an EC2 Instance
     hosts: localhost
-    connection: localhost
+    connection: local
     gather_facts: False
     tags: provisioning
     # Necessary Variables for creating/provisioning the EC2 Instance
