@@ -24,6 +24,8 @@
                       vpc_subnet_id={{ subnet_id }}
                       instance_type={{ instance_type}}
                       image={{ image }}
+                      assign_public_ip=yes
+                      monitoring=yes
                       wait=true
                       region={{ region }}
                       keypair={{ keypair }}
