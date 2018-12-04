@@ -13,7 +13,7 @@
       region: us-east-1 # Change the Region
       keypair: ansible # Change the keypair name
       tag_name: Intance_Ansible
-      count: 1
+      count: 2
 
     # Task that will be used to Launch/Create an EC2 Instance
     tasks:
