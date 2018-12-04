@@ -8,11 +8,12 @@
     vars:
       instance_type: t1.micro
       security_group: default # Change the security group name here
+      subnet_id: subnet-0498dcf174300ddef
       image: ami-6871a115 #"Red Hat Enterprise Linux 7.5 (HVM), SSD Volume Type - ami-6871a115"
       region: us-east-1 # Change the Region
       keypair: ansible # Change the keypair name
-      tag_name: JBoss
-      count: 1
+      tag_name: Intance_Ansible
+      count: 2
 
     # Task that will be used to Launch/Create an EC2 Instance
     tasks:
@@ -20,6 +21,7 @@
       - name: Launch the new EC2 Instance
         local_action: ec2
                       group={{ security_group }}
+                      vpc_subnet_id={{ subnet_id }}
                       instance_type={{ instance_type}}
                       image={{ image }}
                       wait=true
