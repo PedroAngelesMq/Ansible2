@@ -52,7 +52,7 @@
       - name: save private key
         copy:
           content: "{{ ec2.key.private_key }}" 
-          dest: "./ansible.pem" 
+          dest: "./home/ubuntu/ansible.pem" 
           mode: 0600
         when: ec2.changed
 
