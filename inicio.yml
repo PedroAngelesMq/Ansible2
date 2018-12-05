@@ -42,7 +42,7 @@
         register: tag
         
       - name: Testing dict output 4
-        debug: var="nodes.results.{{ item }}.tagged_instances.0.private_ip"
+        debug: var=ec2.instances[0].public_ip
         with_sequence: start=0 count="{{ count }}"
         
 
