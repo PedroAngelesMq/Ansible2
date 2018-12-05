@@ -9,7 +9,7 @@
         ec2_instance_facts:
           region: "{{ region }}"
           filters:
-            "tag:Type": "Intance_Ansible"
+            "tag:name": "Intance_Ansible"
         register: ec2
       - debug: var=ec2
 
