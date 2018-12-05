@@ -48,6 +48,13 @@
           port: 22
           state: started
         with_items: "{{ ec2.instances }}"
+        
+      - name: save private key
+        copy:
+          content: "{{ ec2.key.private_key }}" 
+          dest: "./ansible.pem" 
+          mode: 0600
+        when: ec2.changed
 
       - name: Debug ec2.instances public_ip
         debug: var=ec2.instances[0].public_ip
