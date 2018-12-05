@@ -33,8 +33,8 @@
         register: ec2
 
       - name: Debug ec2.instances public_ip
-          debug: var=ec2.instances[0].public_ip
-          with_items: "{{ ec2.instances }}"
+        with_items: "{{ ec2.instances }}"
+        debug: var=ec2.instances[0].public_ip
         
 
 
