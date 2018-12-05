@@ -1,5 +1,6 @@
 ---
   - name: Provision an EC2 Instance
+    remote_user: ansible
     hosts: localhost
     connection: local
     gather_facts: False
@@ -40,7 +41,13 @@
             Name: "{{ tag_name }}"
 
         register: tag
-
+      
+      - name: Wait for SSH to come up
+        wait_for:
+          host: "{{ item.public_ip }}"
+          port: 22
+          state: started
+        with_items: "{{ ec2.instances }}"
 
       - name: Debug ec2.instances public_ip
         debug: var=ec2.instances[0].public_ip
