@@ -8,7 +8,7 @@
     # Necessary Variables for creating/provisioning the EC2 Instance
     vars:
       instance_type: t1.micro
-      security_group: default # Change the security group name here
+      security_group: SG-ansible # Change the security group name here
       subnet_id: subnet-0498dcf174300ddef
       image: ami-6871a115 #"Red Hat Enterprise Linux 7.5 (HVM), SSD Volume Type - ami-6871a115"
       region: us-east-1 # Change the Region
