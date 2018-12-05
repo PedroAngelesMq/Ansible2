@@ -1,19 +1,21 @@
-- hosts: local
-  connection: local
-  vars:
-    region: us-east-1
-  tasks:
-    - name: Gather EC2 facts
-      ec2_instance_facts:
-        region: "{{ region }}"
-        filters:
-          "tag:Type": "Intance_Ansible"
-      register: ec2
-    - debug: var=ec2
+---
+  - name: Finish EC2 Instances
+    hosts: localhost
+    connection: local
+    vars:
+      region: us-east-1
+    tasks:
+      - name: Gather EC2 facts
+        ec2_instance_facts:
+          region: "{{ region }}"
+          filters:
+            "tag:Type": "Intance_Ansible"
+        register: ec2
+      - debug: var=ec2
 
-    - name: Terminate EC2 Instance(s)
-      ec2:
-        instance_ids: '{{ item.instance_id }}'
-        state: absent
-        region: "{{ region }}"
-      with_items: "{{ ec2.instances }}"
+      - name: Terminate EC2 Instance(s)
+        ec2:
+          instance_ids: '{{ item.instance_id }}'
+          state: absent
+          region: "{{ region }}"
+        with_items: "{{ ec2.instances }}"
